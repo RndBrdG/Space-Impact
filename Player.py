@@ -25,4 +25,4 @@ class Player:
         self.position_X -= 5
 
     def hit(self):
-        self.health -= 1
+        self.health -= 2
