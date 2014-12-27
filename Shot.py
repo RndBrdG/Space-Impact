@@ -11,7 +11,7 @@ class Shot:
         self.image = pygame.image.load("images/friendly_beam.png")
 
     def increment_position_X(self):
-        self.position_X += 2 * self.level
+        self.position_X += 3.5 * self.level
 
     def decrement_position_X(self):
-        self.position_X -= 2 * self.level
+        self.position_X -= 4 * self.level

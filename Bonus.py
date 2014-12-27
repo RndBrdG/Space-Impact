@@ -10,3 +10,6 @@ class Bonus:
         self.bonus = bonus
         self.duration = duration
         self.image = pygame.image.load(image)
+
+    def decrement_position(self, level):
+        self.x -= 0.5 + level * 0.2
