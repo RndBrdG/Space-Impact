@@ -11,18 +11,18 @@ class Enemy:
         self.img_width = img_width
         self.health = 1500
         self.movement = 'UP'
-        self.image = pygame.image.load("enemy_ship.png")
+        self.image = pygame.image.load("images/enemy_ship.png")
 
     def decrement_position_X(self, level):
-        self.position_X -= 2*level
+        self.position_X -= 2 * level
 
     def increment_position_Y(self, level):
-        self.position_Y += 2*level
+        self.position_Y += 2 * level
 
     def decrement_position_Y(self, level):
-        self.position_Y -= 2*level
+        self.position_Y -= 2 * level
 
     def increment_position_X(self, level):
-        self.position_X += 2*level
+        self.position_X += 2 * level
     def hit(self, damage):
         self.health -= damage

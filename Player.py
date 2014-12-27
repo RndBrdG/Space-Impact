@@ -7,7 +7,7 @@ class Player:
         self.health = 100
         self.position_X = 10
         self.position_Y = 0
-        self.image = pygame.image.load("ship.png")
+        self.image = pygame.image.load("images/ship.png")
         self.shots = []
         self.enemies = []
         self.enemies_shots = []

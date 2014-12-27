@@ -10,8 +10,8 @@ import random
 class App:
     def __init__(self):
         self._running = True
-        self.back1 = pygame.image.load("background.png")
-        self.back2 = pygame.image.load("background.png")
+        self.back1 = pygame.image.load("images/background.png")
+        self.back2 = pygame.image.load("images/background.png")
         self.bg_one_x = 0
         self.bg_two_x = self.back2.get_width()
         self._window = None
@@ -144,16 +144,16 @@ class App:
                 self.player.enemies.append(Enemy(self.weight - 100, self.height / 2, -1, 76, 77))
                 for enemy in self.player.enemies:
                     enemy.health = 15000
-                    enemy.image = pygame.image.load("monster_lvl1.png")
+                    enemy.image = pygame.image.load("images/monster_lvl1.png")
             elif self.level == 2:
                 self.player.enemies.append(Enemy(self.weight - 100, self.height / 2, -1, 69, 77))
                 for enemy in self.player.enemies:
-                    enemy.image = pygame.image.load("monster_lvl2.png")
+                    enemy.image = pygame.image.load("images/monster_lvl2.png")
                     enemy.health = 20000
             else:
                 self.player.enemies.append(Enemy(self.weight - 100, self.height / 2, -1, 51, 67))
                 for enemy in self.player.enemies:
-                    enemy.image = pygame.image.load("monster_lvl3.png")
+                    enemy.image = pygame.image.load("images/monster_lvl3.png")
                     enemy.health = 50000
 
     def generate_random_shots(self):
@@ -167,7 +167,7 @@ class App:
                         self.player.enemies_shots.append(Shot(enemy.position_X - 50, pos_y, self.level))
                         number_of_shots -= 1
                 for beams in self.player.enemies_shots:
-                    beams.image = pygame.image.load("enemy_beam.png")
+                    beams.image = pygame.image.load("images/enemy_beam.png")
             else :
                 i = random.randint(0, 1)
                 while i > 0:
