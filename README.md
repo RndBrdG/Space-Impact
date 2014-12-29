@@ -2,7 +2,7 @@
 ![image](http://media.alvanista.com/uploads/game/24/37640/medium_cover.png)
 ### Soft remake of the well-know nokia game.
 
-I need to warn you! Not just because this is the first time i coded a GUI game but because this is my first "complete" program in python. I usually do console programs, etc.. as you can see on my github page.
+I have the huge need of warning you! Not just because this is the first time i coded a GUI game but because this is my first "complete" program in python. I usually do console programs, etc.. as you can see on my github page.
 
 -----------------------
 ### How to run:
