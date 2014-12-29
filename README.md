@@ -24,7 +24,7 @@ I have the huge need of warning you! Not just because this is the first time i c
   * [Download Python!](https://www.python.org/)
 
 *   Pygame
-  * [Download pygame!](http://pygame.org/)
+  * [Download and Install pygame!](http://pygame.org/)
 
 **As a side note, "Fun" while playing this game is recommended.**
 
