@@ -32,7 +32,7 @@ class App:
     def on_init(self):
         pygame.init()
         self._window = pygame.display.set_mode(self.size, pygame.HWSURFACE | pygame.DOUBLEBUF)
-        pygame.display.set_caption('Space Invaders','Spine Runtime')
+        pygame.display.set_caption('Space Impact','Spine Runtime')
         self._window.fill((0, 0, 0))
         self._running = True
         pygame.key.set_repeat(1, 1)
