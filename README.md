@@ -4,7 +4,8 @@
 
 I have the huge need of warning you! Not just because this is the first time i coded a GUI game but also because this is my first "complete" program in python. I usually do console programs, etc.. as you can see on my github page.
 
-###VERSION: alpha 0.01
+###VERSION:
+           alpha 0.01
 -----------------------
 ### How to run:
 
