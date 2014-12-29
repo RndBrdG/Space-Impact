@@ -54,6 +54,8 @@ class App:
                 if self.player.position_X + 55 < self.weight:
                     self.player.increment_position_X()
             elif event.key == K_SPACE:
+                if self.player.double_guns:
+                    self.player.shots.append(Shot(self.player.position_X, self.player.position_Y + 45, 1))
                 self.player.shots.append(Shot(self.player.position_X, self.player.position_Y, 1))
                 shot_music = pygame.mixer.Sound("sounds/shot.wav")
                 shot_music.set_volume(0.05)
@@ -93,14 +95,15 @@ class App:
                         if self.player.health <= 0:
                             break
         for (index, bonus_item) in enumerate(self.bonus):
-            if self.player.position_X < bonus_item.x + 32 and self.player.position_X + 50 > bonus_item.x and self.player.position_Y < bonus_item.y + 32 and self.player.position_Y + 50 > bonus_item.y:
+            if self.player.position_X < bonus_item.x + bonus_item.image.get_width() and self.player.position_X + 50 > bonus_item.x and self.player.position_Y < bonus_item.y + bonus_item.image.get_height() and self.player.position_Y + 50 > bonus_item.y:
                 if bonus_item.type == "HEALTH":
                     if self.player.health + bonus_item.bonus > 100:
                         self.player.health = 100
                     else:
                         self.player.health += bonus_item.bonus
-                self.bonus.pop(index)
-
+                    self.bonus.pop(index)
+                elif bonus_item.type == "DOUBLE_GUNS":
+                    self.player.double_guns = True
 
     def draw(self):
         self._window.blit( self.back1, (self.bg_one_x, 0))
@@ -133,9 +136,16 @@ class App:
 
         for (index,bonus_item) in enumerate(self.bonus):
             self._window.blit(bonus_item.image, (bonus_item.x, bonus_item.y))
-            bonus_item.decrement_position(self.level)
-            if bonus_item.x < 10:
-                self.bonus.pop(index)
+            if bonus_item.type == "DOUBLE_GUNS":
+                if self.player.double_guns:
+                    bonus_item.x = -50000
+                bonus_item.increment_position(self.level)
+                if bonus_item.x > self.weight - 10:
+                    self.bonus.pop(index)
+            else:
+                bonus_item.decrement_position(self.level)
+                if bonus_item.x < 10:
+                    self.bonus.pop(index)
 
         for (index, enemy) in enumerate(self.player.enemies):
             self._window.blit(enemy.image, (enemy.position_X, enemy.position_Y))
@@ -203,10 +213,22 @@ class App:
     def generate_random_bonus(self):
         if len(self.bonus) == 0:
             i = random.randint(0, 5000)
+            posx = random.randint(round(self.weight / 3), round(2 * self.weight / 3))
+            posy = random.randint(50, self.height - 50)
             if i < 1:
-                posx = random.randint(round(self.weight / 3), round(2 * self.weight / 3))
-                posy = random.randint(50, self.height - 50)
                 self.bonus.append(Bonus(posx, posy, "HEALTH", 20, -1, "images/red-potion.png"))
+            elif i == 1 or i == 2:
+                if not self.player.double_guns:
+                    self.bonus.append(Bonus(posx, posy, "DOUBLE_GUNS", -1, 20 * 1000, "images/bomb.png"))
+
+    def updateBonusTime(self):
+        for (index,bonusActive) in enumerate(self.bonus):
+            if bonusActive.type == "DOUBLE_GUNS" and self.player.double_guns:
+                if bonusActive.time + self.framePerSecond.get_time() < bonusActive.duration:
+                    bonusActive.time += self.framePerSecond.get_time()
+                else:
+                    self.bonus.pop(index)
+                    self.player.double_guns = False
 
     def on_execute(self):
         if self.on_init() == False:
@@ -226,5 +248,6 @@ class App:
             for event in pygame.event.get():
                 self.on_event(event)
             self.on_render()
+            self.updateBonusTime()
             self.framePerSecond.tick(60)
         pygame.quit()
