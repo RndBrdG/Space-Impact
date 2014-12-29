@@ -1,4 +1,5 @@
 # SPACE IMPACT
+![image](http://media.alvanista.com/uploads/game/24/37640/medium_cover.png)
 ### Soft remake of the well-know nokia game.
 
 I need to warn you! Not just because this is the first time i coded a GUI game but because this is my first "complete" program in python. I usually do console programs, etc.. as you can see on my github page.
@@ -30,6 +31,8 @@ I need to warn you! Not just because this is the first time i coded a GUI game b
 ### TO DO LIST:
 
 * More levels
+* Create Main menu
+* Victory and Lost images.
 * Increase performance
 * Add more types of enemys and bonus.
 * Better enemy movements.
@@ -52,3 +55,9 @@ I need to warn you! Not just because this is the first time i coded a GUI game b
 #### Credits
   * > Lots of images from [OpenGameArt](http://opengameart.org/)
   * > Some sounds from [FreeSoound](freesound.org)
+  * > README image from [Alvanista](http://alvanista.com/games/android/defesa-espacial-space-impact)
+
+-------
+
+
+License: MIT
