@@ -28,8 +28,15 @@ class Character(ABC):
     def take_damage(self, amount):
         """
         Function that reduces player's health as it takes damage
-        :param amount:
-        :return:
+        :param amount: Amount of damage the character will take
         """
 
         self.health -= amount
+
+    def retrieve_health_information(self):
+        """
+        Retrieves the health information about this character
+        :return: health variable
+        """
+
+        return self.hp

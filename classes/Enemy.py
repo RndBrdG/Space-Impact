@@ -2,7 +2,7 @@ import pygame
 from classes.Character import Character
 
 
-class Enemy(metaclass=Character):
+class Enemy(Character):
     """
     Class that holds all the information about the enemy objects
     """
@@ -16,7 +16,7 @@ class Enemy(metaclass=Character):
         :param img_length: Length of the sprite
         :param img_width: Width of the sprite
         """
-        super((position_x, position_y), 1500)
+        super().__init__((position_x, position_y), 1500)
         self.speed = speed
         self.img_length = img_length
         self.img_width = img_width

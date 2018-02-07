@@ -2,16 +2,16 @@ import pygame
 from classes.Character import Character
 
 
-class Player(metaclass=Character):
+class Player(Character):
     """
     Player class holds information about the player
     """
 
-    def __init__(self):
+    def __init__(self, initial_position, health):
         """
         Constructor of the class
         """
-        super((0, 10), 100)
+        super().__init__(initial_position, health)
         self.points = 0
         self.image = pygame.image.load("images/ship.png")
         self.double_guns = False
