@@ -3,9 +3,9 @@ import pygame
 
 class Bonus:
 
-    def __init__(self, positionX, positionY, bonus_type, bonus, duration, image):
-        self.x = positionX
-        self.y = positionY
+    def __init__(self, position_x, position_y, bonus_type, bonus, duration, image):
+        self.x = position_x
+        self.y = position_y
         self.type = bonus_type
         self.bonus = bonus
         self.duration = duration
