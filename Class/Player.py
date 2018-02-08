@@ -1,5 +1,5 @@
 import pygame
-from classes.Character import Character
+from Class.Character import Character
 
 
 class Player(Character):

@@ -3,7 +3,7 @@ from abc import ABC
 
 class Character(ABC):
     """
-    Abstract class that will be the foundation for enemy and player classes
+    Abstract class that will be the foundation for enemy and player Class
     """
 
     def __init__(self, initial_position, health):
