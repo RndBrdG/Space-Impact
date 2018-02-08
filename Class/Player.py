@@ -1,4 +1,3 @@
-import pygame
 from Class.Character import Character
 
 
@@ -22,5 +21,5 @@ class Player(Character):
         self.enemies = []
         self.enemies_shots = []
 
-    def update(self):
-        self.change_character_position(1, 1)
+    def update(self, delta):
+        self.change_character_position(100 * delta, 0 * delta)

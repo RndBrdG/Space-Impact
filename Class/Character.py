@@ -31,8 +31,7 @@ class Character(ABC, pygame.sprite.Sprite):
         :param x_axis: Amount of units to be added to player's x position
         :param y_axis: Amount of units to be added to player's y position
         """
-
-        self.rect.x, self.rect.y = self.rect.x + x_axis, self.rect.y + y_axis
+        self.rect.move_ip(x_axis, y_axis)
 
     def take_damage(self, amount):
         """
@@ -40,7 +39,7 @@ class Character(ABC, pygame.sprite.Sprite):
         :param amount: Amount of damage the character will take
         """
 
-        self.health -= amount
+        self.hp -= amount
 
     def retrieve_health_information(self):
         """
@@ -51,7 +50,7 @@ class Character(ABC, pygame.sprite.Sprite):
         return self.hp
 
     @abstractmethod
-    def update(self):
+    def update(self, delta):
         """
         Function that every child class has to implement
         """

@@ -19,8 +19,8 @@ class Game:
         # Create Pygame related objects
         pygame.init()
         self.screen = pygame.display.set_mode((config.game_config.width, config.game_config.height))
+        self.clock = pygame.time.Clock()
         pygame.display.set_caption(config.game_config.title)
-        pygame.time.Clock().tick(60)
 
         # Create Sprite containers
         self.enemies_sprites = pygame.sprite.Group()
@@ -32,9 +32,12 @@ class Game:
     def game_loop(self):
 
         while True:
+
+            delta = self.clock.tick(60) / 1000
+
             if self.player.retrieve_health_information() <= 0:
                 break
-            self.player.update()
+            self.player.update(delta)
             self.screen.blit(self.player.image, self.player.rect)
 
             pygame.display.flip()
