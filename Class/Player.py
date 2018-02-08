@@ -11,10 +11,16 @@ class Player(Character):
         """
         Constructor of the class
         """
-        super().__init__(initial_position, health)
+
+        # Initializing Sprite related variables
+        super().__init__(initial_position, health, "images/ship.png")
+
+        # Initializing player's game variables
         self.points = 0
-        self.image = pygame.image.load("images/ship.png")
         self.double_guns = False
         self.shots = []
         self.enemies = []
         self.enemies_shots = []
+
+    def update(self):
+        self.change_character_position(1, 1)

@@ -1,18 +1,28 @@
-from abc import ABC
+from abc import ABC, abstractmethod
+
+import pygame
 
 
-class Character(ABC):
+class Character(ABC, pygame.sprite.Sprite):
     """
     Abstract class that will be the foundation for enemy and player Class
     """
 
-    def __init__(self, initial_position, health):
+    def __init__(self, initial_position, health, sprite_url):
         """
         Constructor of the class
         :param initial_position: Tuple with x and y position
         :param health: Amount of health points the character will have
+        :param sprite_url: Url for the sprite file
         """
-        self.position_X, self.position_Y = initial_position
+
+        # Initialise Sprite related variables
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(sprite_url).convert()
+        self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = initial_position
+
+        # Initialise character variables
         self.hp = health
 
     def change_character_position(self, x_axis, y_axis):
@@ -22,8 +32,7 @@ class Character(ABC):
         :param y_axis: Amount of units to be added to player's y position
         """
 
-        self.position_X += x_axis
-        self.position_Y += y_axis
+        self.rect.x, self.rect.y = self.rect.x + x_axis, self.rect.y + y_axis
 
     def take_damage(self, amount):
         """
@@ -40,3 +49,10 @@ class Character(ABC):
         """
 
         return self.hp
+
+    @abstractmethod
+    def update(self):
+        """
+        Function that every child class has to implement
+        """
+        pass
