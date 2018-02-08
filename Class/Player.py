@@ -1,3 +1,5 @@
+import pygame
+
 from Class.Character import Character
 
 

@@ -19,6 +19,7 @@ class Character(ABC, pygame.sprite.Sprite):
         # Initialise Sprite related variables
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(sprite_url).convert()
+        self.image = pygame.transform.scale(self.image, (32, 32))
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = initial_position
 
