@@ -22,4 +22,9 @@ class Player(Character):
         self.enemies_shots = []
 
     def update(self, delta):
+        """
+        Update function
+        :param delta: Time lapse
+        :return:
+        """
         self.change_character_position(100 * delta, 0 * delta)

@@ -1,3 +1,4 @@
+from Class.Enemy import Enemy
 from Class.Player import *
 from Config.ConfigParser import ConfigParser
 from Explosions import *
@@ -28,6 +29,9 @@ class Game:
 
         # Create Player object
         self.player = Player((0, 0), 100)
+        self.enemy = Enemy((100, 0), 1500)
+
+        self.enemies_sprites.add(self.enemy)
 
     def game_loop(self):
 
@@ -37,8 +41,12 @@ class Game:
 
             if self.player.retrieve_health_information() <= 0:
                 break
+
+            self.screen.fill((0, 0, 0))
+            self.enemies_sprites.update(delta)
             self.player.update(delta)
             self.screen.blit(self.player.image, self.player.rect)
+            self.enemies_sprites.draw(self.screen)
 
             pygame.display.flip()
         pygame.quit()

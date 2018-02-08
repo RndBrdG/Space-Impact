@@ -7,19 +7,17 @@ class Enemy(Character):
     Class that holds all the information about the enemy objects
     """
 
-    def __init__(self, position_x, position_y, speed, img_length, img_width):
+    def __init__(self, initial_position, hp):
         """
         Constructor
-        :param position_x: Initial X position
-        :param position_y: Initial Y position
-        :param speed: Speed at which the enemy will move
-        :param img_length: Length of the sprite
-        :param img_width: Width of the sprite
+        :param initial_position: Initial position
+        :param hp: Amount of health points this character will start with
         """
-        super().__init__((position_x, position_y), 1500)
-        self.speed = speed
-        self.img_length = img_length
-        self.img_width = img_width
-        self.movement = 'UP'
-        self.image = pygame.image.load("images/enemy_ship.png")
+        super().__init__(initial_position, hp, "images/enemy_ship.png")
 
+    def update(self, delta):
+        """
+        Update Function that takes into consideration time lapsed.
+        :param delta: Time elapsed. It is turned into negative, since enemies will travel in opposite ways
+        """
+        self.change_character_position(100 * delta, 0 * delta)
