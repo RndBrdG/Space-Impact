@@ -1,5 +1,4 @@
-import pygame
-from Class.Character import Character
+from Class.Characters.Character import Character
 
 
 class Enemy(Character):

@@ -1,5 +1,5 @@
-from Class.Enemy import Enemy
-from Class.Player import *
+from Class.Characters.Enemy import Enemy
+from Class.Characters.Player import *
 from Config.ConfigParser import ConfigParser
 from Explosions import *
 
