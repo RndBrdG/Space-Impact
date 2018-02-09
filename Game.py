@@ -44,20 +44,17 @@ class Game:
 
         level_loaded = Level(level).map_parsed
 
+        # Load background
+        self.background_sprites.add(Background(0, 0, './images/background1.png'))
+
         # calculating size of level
         y_axis_length = len(level_loaded)
         x_axis_length = len(level_loaded[0])
 
-        # calculating size of background sprites
-        b_sprite_width = self.config.game_config.width / x_axis_length
-        b_sprite_height = self.config.game_config.height / y_axis_length
-
         for y in range(y_axis_length):
             for x in range(x_axis_length):
                 if level_loaded[y][x] == '.':
-                    self.background_sprites.add(Background(b_sprite_width * x, b_sprite_height * y,
-                                                           b_sprite_width, b_sprite_height,
-                                                           './images/background.png'))
+                    pass
 
     def game_loop(self):
 
@@ -70,9 +67,9 @@ class Game:
 
             self.enemies_sprites.update(delta)
             self.player.update(delta)
-            self.screen.blit(self.player.image, self.player.rect)
             self.background_sprites.draw(self.screen)
             self.enemies_sprites.draw(self.screen)
+            self.screen.blit(self.player.image, self.player.rect)
 
             pygame.display.flip()
         pygame.quit()
