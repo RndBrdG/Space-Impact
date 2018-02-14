@@ -20,3 +20,10 @@ class Background(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
 
+    def update(self, movement):
+        """
+        Function created to be able to edit this object location
+        :param movement: Shift of position
+        """
+
+        self.rect.move_ip(movement.x, movement.y)

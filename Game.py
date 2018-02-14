@@ -1,5 +1,6 @@
 from Class.Characters.Player import *
 from Class.Levels.Background import Background
+from Class.Levels.Camera import Camera
 from Class.Levels.Level import Level
 from Config.ConfigParser import ConfigParser
 from Explosions import *
@@ -30,6 +31,9 @@ class Game:
         self.enemy_bullets = pygame.sprite.Group
         self.background_sprites = pygame.sprite.Group()
 
+        # Camera
+        self.camera = Camera(self.config.game_config.width, self.config.game_config.height)
+
         # Create Player object
         self.player = Player((0, 0), 100)
 
@@ -45,7 +49,8 @@ class Game:
         level_loaded = Level(level).map_parsed
 
         # Load background
-        self.background_sprites.add(Background(0, 0, './images/background1.png'))
+        first_background = Background(0, 0, './images/background1.png')
+        self.background_sprites.add(first_background)
 
         # calculating size of level
         y_axis_length = len(level_loaded)
@@ -60,16 +65,25 @@ class Game:
 
         while True:
 
+            # update camera to follow player character
+            self.camera.update(self.player.rect)
+
             delta = self.clock.tick(60) / 1000
 
             if self.player.retrieve_health_information() <= 0:
                 break
 
+            # Update enemies and player's location
             self.enemies_sprites.update(delta)
             self.player.update(delta)
+
+            # Update and draw Background
+            self.background_sprites.update(self.camera.apply(self.player))
             self.background_sprites.draw(self.screen)
+
+            # Draw Enemies and Player
             self.enemies_sprites.draw(self.screen)
             self.screen.blit(self.player.image, self.player.rect)
-
             pygame.display.flip()
+
         pygame.quit()
