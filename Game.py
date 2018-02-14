@@ -86,12 +86,12 @@ class Game:
             self.player.update(movm)
 
             # Update and draw Background
-            self.background_sprites.update(self.camera.apply(self.player))
+            #self.background_sprites.update(self.camera.apply(self.player))
             self.background_sprites.draw(self.screen)
 
             # Draw Enemies and Player
             self.enemies_sprites.draw(self.screen)
-            self.screen.blit(self.player.image, self.player.rect)
+            self.screen.blit(self.player.image, self.camera.apply(self.player))
 
             pygame.display.flip()
 
@@ -104,13 +104,13 @@ class Game:
         """
 
         if event.key == pygame.K_w:
-            return 0, 1
-        elif event.key == pygame.K_s:
             return 0, -1
+        elif event.key == pygame.K_s:
+            return 0, 1
         elif event.key == pygame.K_a:
             return -1, 0
         elif event.key == pygame.K_d:
-            return 0, 1
+            return 1, 0
         else:
             return 0, 0
 
