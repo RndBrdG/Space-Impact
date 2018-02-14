@@ -65,6 +65,14 @@ class Game:
 
         while True:
 
+            # Handling inputs
+            movm = (0, 0)
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    movm = self.input_handle(event)
+                elif event.type == pygame.QUIT:
+                    pygame.quit()
+
             # update camera to follow player character
             self.camera.update(self.player.rect)
 
@@ -75,7 +83,7 @@ class Game:
 
             # Update enemies and player's location
             self.enemies_sprites.update(delta)
-            self.player.update(delta)
+            self.player.update(movm)
 
             # Update and draw Background
             self.background_sprites.update(self.camera.apply(self.player))
@@ -85,10 +93,6 @@ class Game:
             self.enemies_sprites.draw(self.screen)
             self.screen.blit(self.player.image, self.player.rect)
 
-            # Handling inputs
-            for event in pygame.event.get():
-                self.input_handle(event)
-
             pygame.display.flip()
 
         pygame.quit()
@@ -96,8 +100,19 @@ class Game:
     def input_handle(self, event):
         """
         Function responsible for handling the input
-        :return:
+        :return: Tuple
         """
-        pass
+
+        if event.key == pygame.K_w:
+            return 0, 1
+        elif event.key == pygame.K_s:
+            return 0, -1
+        elif event.key == pygame.K_a:
+            return -1, 0
+        elif event.key == pygame.K_d:
+            return 0, 1
+        else:
+            return 0, 0
+
 
 

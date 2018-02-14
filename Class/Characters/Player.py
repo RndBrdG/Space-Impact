@@ -21,10 +21,10 @@ class Player(Character):
         self.enemies = []
         self.enemies_shots = []
 
-    def update(self, delta):
+    def update(self, delta_movement):
         """
         Update function
-        :param delta: Time lapse
+        :param delta_movement: Tuple (x,y) representing the amount of units to move
         :return:
         """
-        self.change_character_position(100 * delta, 0 * delta)
+        super().change_character_position(delta_movement[0], delta_movement[1])
