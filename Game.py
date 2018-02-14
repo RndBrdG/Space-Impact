@@ -84,6 +84,20 @@ class Game:
             # Draw Enemies and Player
             self.enemies_sprites.draw(self.screen)
             self.screen.blit(self.player.image, self.player.rect)
+
+            # Handling inputs
+            for event in pygame.event.get():
+                self.input_handle(event)
+
             pygame.display.flip()
 
         pygame.quit()
+
+    def input_handle(self, event):
+        """
+        Function responsible for handling the input
+        :return:
+        """
+        pass
+
+
