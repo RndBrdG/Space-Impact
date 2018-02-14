@@ -49,8 +49,8 @@ class Game:
         level_loaded = Level(level).map_parsed
 
         # Load background
-        first_background = Background(0, 0, './images/background1.png')
-        self.background_sprites.add(first_background)
+        self.first_background = Background(0, 0, './images/background1.png')
+        self.background_sprites.add(self.first_background)
 
         # calculating size of level
         y_axis_length = len(level_loaded)
@@ -73,10 +73,10 @@ class Game:
                 elif event.type == pygame.QUIT:
                     pygame.quit()
 
-            # update camera to follow player character
-            self.camera.update(self.player.rect)
-
             delta = self.clock.tick(60) / 1000
+
+            # update camera to follow player character
+            self.camera.update(delta)
 
             if self.player.retrieve_health_information() <= 0:
                 break
@@ -86,12 +86,12 @@ class Game:
             self.player.update(movm)
 
             # Update and draw Background
-            #self.background_sprites.update(self.camera.apply(self.player))
+            self.background_sprites.update(self.camera.apply(self.first_background))
             self.background_sprites.draw(self.screen)
 
             # Draw Enemies and Player
             self.enemies_sprites.draw(self.screen)
-            self.screen.blit(self.player.image, self.camera.apply(self.player))
+            self.screen.blit(self.player.image, self.player)
 
             pygame.display.flip()
 

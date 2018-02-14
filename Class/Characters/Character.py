@@ -32,7 +32,7 @@ class Character(ABC, pygame.sprite.Sprite):
         :param x_axis: Amount of units to be added to player's x position
         :param y_axis: Amount of units to be added to player's y position
         """
-        self.rect.move_ip(x_axis, y_axis)
+        self.rect.move_ip(x_axis * 5, y_axis * 5)
 
     def take_damage(self, amount):
         """
