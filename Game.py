@@ -49,7 +49,7 @@ class Game:
         level_loaded = Level(level).map_parsed
 
         # Load background
-        self.first_background = Background(0, 0, './images/background1.png')
+        self.first_background = Background(0, 0, './images/background.png')
         self.background_sprites.add(self.first_background)
 
         # calculating size of level
