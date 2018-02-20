@@ -21,6 +21,7 @@ class Game:
 
         # Create Pygame related objects
         pygame.init()
+        pygame.key.set_repeat(10, 10)
         self.screen = pygame.display.set_mode((self.config.game_config.width, self.config.game_config.height),
                                               pygame.RESIZABLE)
         self.clock = pygame.time.Clock()
