@@ -104,13 +104,13 @@ class Game:
         :return: Tuple
         """
 
-        if event.key == pygame.K_w:
+        if event.key is pygame.K_w or event.key is pygame.K_UP:
             return 0, -1
-        elif event.key == pygame.K_s:
+        elif event.key is pygame.K_s or event.key is pygame.K_DOWN:
             return 0, 1
-        elif event.key == pygame.K_a:
+        elif event.key is pygame.K_a or event.key is pygame.K_LEFT:
             return -1, 0
-        elif event.key == pygame.K_d:
+        elif event.key is pygame.K_d or event.key is pygame.K_RIGHT:
             return 1, 0
         else:
             return 0, 0
