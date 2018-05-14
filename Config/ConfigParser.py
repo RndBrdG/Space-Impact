@@ -3,7 +3,7 @@ import configparser
 
 class ConfigParser:
     """
-    Class responsible for reading and storing information in config.ini file
+    Classes responsible for reading and storing information in config.ini file
     """
 
     def __init__(self, url):
@@ -19,7 +19,7 @@ class ConfigParser:
 
 class GameConfig:
     """
-    Class responsible for storing the information available in section GameVariables of config.ini
+    Classes responsible for storing the information available in section GameVariables of config.ini
     """
 
     def __init__(self, game_section):

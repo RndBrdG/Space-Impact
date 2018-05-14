@@ -3,7 +3,7 @@ import pygame
 
 class Background(pygame.sprite.Sprite):
     """
-    Class responsible for representing a tile
+    Classes responsible for representing a tile
     """
 
     def __init__(self, x, y, sprite_url):

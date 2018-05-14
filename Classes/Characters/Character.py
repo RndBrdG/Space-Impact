@@ -5,7 +5,7 @@ import pygame
 
 class Character(ABC, pygame.sprite.Sprite):
     """
-    Abstract class that will be the foundation for enemy and player Class
+    Abstract class that will be the foundation for enemy and player Classes
     """
 
     def __init__(self, initial_position, health, sprite_url):

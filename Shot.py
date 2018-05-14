@@ -3,7 +3,7 @@ import pygame
 
 class Shot:
     """
-    Class that holds all the information related to the shots present in the scene
+    Classes that holds all the information related to the shots present in the scene
     """
 
     def __init__(self, position_x, position_y, level):
@@ -18,7 +18,7 @@ class Shot:
         self.position_Y = position_y
         self.level = level
         self.damage = 50
-        self.image = pygame.image.load("images/friendly_beam.png")
+        self.image = pygame.image.load("Images/friendly_beam.png")
 
     def change_shot_position(self, x_axis, y_axis):
         """

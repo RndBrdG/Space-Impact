@@ -3,7 +3,7 @@ import configparser
 
 class MapsParser:
     """
-    Class responsible for parsing maps.ini
+    Classes responsible for parsing maps.ini
     """
 
     def __init__(self, file_url="./Config/maps.ini"):

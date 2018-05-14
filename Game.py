@@ -1,14 +1,14 @@
-from Class.Characters.Player import *
-from Class.Levels.Background import Background
-from Class.Levels.Camera import Camera
-from Class.Levels.Level import Level
+from Classes.Characters.Player import *
+from Classes.Levels.Background import Background
+from Classes.Levels.Camera import Camera
+from Classes.Levels.Level import Level
 from Config.ConfigParser import ConfigParser
 from Explosions import *
 
 
 class Game:
     """
-    Class responsible for managing the game itself and Pygame objects
+    Classes responsible for managing the game itself and Pygame objects
     """
 
     def __init__(self):
@@ -43,14 +43,14 @@ class Game:
 
     def load_level(self, level=1):
         """
-        Class responsible for loading a specific level passed as argument.
+        Classes responsible for loading a specific level passed as argument.
         :param level: Desired level or 1 by default
         """
 
         level_loaded = Level(level).map_parsed
 
         # Load background
-        self.first_background = Background(0, 0, './images/background.png')
+        self.first_background = Background(0, 0, './Images/background.png')
         self.background_sprites.add(self.first_background)
 
         # calculating size of level

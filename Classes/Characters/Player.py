@@ -1,4 +1,4 @@
-from Class.Characters.Character import Character
+from Classes.Characters.Character import Character
 
 
 class Player(Character):
@@ -12,7 +12,7 @@ class Player(Character):
         """
 
         # Initializing Sprite related variables
-        super().__init__(initial_position, health, "images/ship.png")
+        super().__init__(initial_position, health, "Images/ship.png")
 
         # Initializing player's game variables
         self.points = 0

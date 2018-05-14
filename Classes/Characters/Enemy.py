@@ -1,9 +1,9 @@
-from Class.Characters.Character import Character
+from Classes.Characters.Character import Character
 
 
 class Enemy(Character):
     """
-    Class that holds all the information about the enemy objects
+    Classes that holds all the information about the enemy objects
     """
 
     def __init__(self, initial_position, hp):
@@ -12,7 +12,7 @@ class Enemy(Character):
         :param initial_position: Initial position
         :param hp: Amount of health points this character will start with
         """
-        super().__init__(initial_position, hp, "images/enemy_ship.png")
+        super().__init__(initial_position, hp, "Images/enemy_ship.png")
 
     def update(self, delta):
         """

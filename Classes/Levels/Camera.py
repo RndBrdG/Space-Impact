@@ -3,7 +3,7 @@ import pygame
 
 class Camera:
     """
-    Class responsible for handling camera
+    Classes responsible for handling camera
     """
 
     def __init__(self, width, height):

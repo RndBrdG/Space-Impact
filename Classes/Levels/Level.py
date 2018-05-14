@@ -3,7 +3,7 @@ from Config.MapsParser import MapsParser
 
 class Level:
     """
-    Class responsible for loading and storing all the information about a specific level to be played
+    Classes responsible for loading and storing all the information about a specific level to be played
     """
 
     def __init__(self, level):
