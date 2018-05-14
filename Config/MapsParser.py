@@ -19,7 +19,7 @@ class MapsParser:
         """
         Function that retrieves information about a specific level
         :param level: Level wanted
-        :return:
+        :return: A tuple containing map configuration and an array containing filenames for the backgrounds
         """
 
         section_name = "LEVEL" + str(level)
@@ -27,8 +27,9 @@ class MapsParser:
         try:
             level = self.config[section_name]
             map_design = level["map"]
+            map_background = level["background_sprite"].split(',')
         except configparser.NoSectionError:
             print('Level is not loadable. Check if level exists in provided file.')
             raise
 
-        return map_design
+        return map_design, map_background

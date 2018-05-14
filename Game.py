@@ -47,7 +47,7 @@ class Game:
         :param level: Desired level or 1 by default
         """
 
-        level_loaded = Level(level).map_parsed
+        level_loaded = Level(level)
 
         # Load background
         self.first_background = Background(0, 0, './Images/background.png')
@@ -98,7 +98,8 @@ class Game:
 
         pygame.quit()
 
-    def input_handle(self, event):
+    @staticmethod
+    def input_handle(event):
         """
         Function responsible for handling the input
         :return: Tuple
