@@ -1,11 +1,11 @@
 # SPACE IMPACT
 ![image](http://media.alvanista.com/uploads/game/24/37640/medium_cover.png)
-### Soft remake of the well-know nokia game.
+### Space remake - A remake
 
-I have the huge need of warning you! Not just because this is the first time i coded a GUI game but also because this is my first "complete" program in python. I usually do console programs, etc.. as you can see on my github page.
+Although it has the same name of the nokia's popular game, Space Impact, it is graphically different. One can think of this game as one that mimics the mechanics of the game but changes the graphics. 
 
-###VERSION:
-           alpha 0.01
+###### VERSION:
+    alpha 0.01
 -----------------------
 ### How to run:
 
@@ -18,30 +18,29 @@ I have the huge need of warning you! Not just because this is the first time i c
         $ python<3> main.py
       ```
   
-###Requirements list:
+### Requirements list:
 
 *   Python 3.4
   * [Download Python!](https://www.python.org/)
 
 *   Pygame
   * [Download and Install pygame!](http://pygame.org/)
-
-**As a side note, "Fun" while playing this game is recommended.**
-
 -------
 
 ### TO DO LIST:
 
-* More levels
-* Create Main menu
-* Victory and Lost images.
-* Increase performance
-* Add more types of enemys and bonus.
-* Better enemy movements.
-  * Move according to player last position. 
+* Dynamically added levels
+* Enemy and Bonus to be described dynamically
+* Visual Update
+  * Create Main Menu
+  * Victory and Lost images
+  * Better User Interface
+* Better enemy AI.
+  * Move according to player last position.
+  * Move according to pre-defined mathematical functions
   * Bosses with new moves and new ways of attacking.
   * etc...
-* Improve music.
+* Improve Sound to improve the game's immersiveness.
 
 ***You can always suggest me new ideas. Just send me a private message here, on github, or send me an email.***
 
