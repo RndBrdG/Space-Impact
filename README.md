@@ -56,6 +56,7 @@ Although it has the same name of the nokia's popular game, Space Impact, it is g
 #### Credits
   * > Lots of images from [OpenGameArt](http://opengameart.org/)
   * > Some sounds from [FreeSoound](freesound.org)
+  * > Huge thanks to [CraftPix](craftpix.net) for their background images
   * > README image from [Alvanista](http://alvanista.com/games/android/defesa-espacial-space-impact)
 
 -------
