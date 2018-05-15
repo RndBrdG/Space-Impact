@@ -19,6 +19,8 @@ class Background(pygame.sprite.Sprite):
         self.image = pygame.image.load(sprite_url).convert()
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
+        self.dx = 1
+        self.block_mvm = False
 
     def update(self, movement):
         """
@@ -26,4 +28,5 @@ class Background(pygame.sprite.Sprite):
         :param movement: Shift of position
         """
 
-        self.rect.move_ip(movement.x, movement.y)
+        if not self.block_mvm:
+            self.rect.x -= self.dx

@@ -87,16 +87,15 @@ class Game:
 
             # Update enemies and player's location
             self.enemies_sprites.update(delta)
-            self.player.update(movm)
+            self.player.update_with_constrains(movm, (self.config.game_config.width, self.config.game_config.height))
 
             # Update and draw Background
-            #self.background_sprites.update(self.camera.apply(self.player))
+            self.background_sprites.update(delta)
             self.background_sprites.draw(self.screen)
 
             # Draw Enemies and Player
             self.enemies_sprites.draw(self.screen)
             self.screen.blit(self.player.image, self.player)
-
 
             pygame.display.flip()
 

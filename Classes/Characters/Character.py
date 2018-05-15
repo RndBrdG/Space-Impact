@@ -34,6 +34,15 @@ class Character(ABC, pygame.sprite.Sprite):
         """
         self.rect.move_ip(x_axis * 5, y_axis * 5)
 
+    def test_character_position(self, x_axis, y_axis):
+        """
+        Function to test player's final location
+        :param x_axis: Amount to be added in X-axis
+        :param y_axis: Amount to be added in Y-axis
+        :return: A tuple of size 2 containing the new coordinates of the player
+        """
+        return self.rect.x + x_axis * 5, self.rect.y + y_axis * 5
+
     def take_damage(self, amount):
         """
         Function that reduces player's health as it takes damage

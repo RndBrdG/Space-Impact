@@ -28,3 +28,11 @@ class Player(Character):
         :return:
         """
         super().change_character_position(delta_movement[0], delta_movement[1])
+
+    def update_with_constrains(self, delta_movement, window_size):
+
+        x, y = super().test_character_position(delta_movement[0], delta_movement[1])
+
+        if 0 <= x < window_size[0]:
+            if 0 <= y < window_size[1]:
+                self.update(delta_movement)
