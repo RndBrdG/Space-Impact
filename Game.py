@@ -8,7 +8,7 @@ from Explosions import *
 
 class Game:
     """
-    Classes responsible for managing the game itself and Pygame objects
+    Class responsible for managing the game itself and Pygame objects
     """
 
     def __init__(self):
@@ -43,26 +43,29 @@ class Game:
 
     def load_level(self, level=1):
         """
-        Classes responsible for loading a specific level passed as argument.
+        Function responsible for loading a specific level passed as argument.
         :param level: Desired level or 1 by default
         """
 
         level_loaded = Level(level)
 
-        # Load background
-        self.first_background = Background(0, 0, './Images/background.png')
-        self.background_sprites.add(self.first_background)
+        # Load background(s)
+        self.background_sprites.add(level_loaded.backgrounds)
 
         # calculating size of level
-        y_axis_length = len(level_loaded)
-        x_axis_length = len(level_loaded[0])
+        y_axis_length = len(level_loaded.get_map())
+        x_axis_length = len(level_loaded.get_map()[0])
 
         for y in range(y_axis_length):
             for x in range(x_axis_length):
-                if level_loaded[y][x] == '.':
+                if level_loaded.get_map()[y][x] == '.':
                     pass
 
     def game_loop(self):
+        """
+        Function that handles everything in the game
+        :return: void
+        """
 
         while True:
 
@@ -87,12 +90,13 @@ class Game:
             self.player.update(movm)
 
             # Update and draw Background
-            self.background_sprites.update(self.camera.apply(self.first_background))
+            #self.background_sprites.update(self.camera.apply(self.player))
             self.background_sprites.draw(self.screen)
 
             # Draw Enemies and Player
             self.enemies_sprites.draw(self.screen)
             self.screen.blit(self.player.image, self.player)
+
 
             pygame.display.flip()
 
