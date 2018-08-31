@@ -1,5 +1,5 @@
 from Classes.Characters.Player import *
-from Classes.Levels.Background import Background
+from Classes.Characters.Enemy import *
 from Classes.Levels.Camera import Camera
 from Classes.Levels.Level import Level
 from Config.ConfigParser import ConfigParser
@@ -60,6 +60,9 @@ class Game:
             for x in range(x_axis_length):
                 if level_loaded.get_map()[y][x] == '.':
                     pass
+                elif level_loaded.get_map()[y][x] == 'A':
+                    self.enemies_sprites.add(Enemy((x * 64, y * 64), 100))
+
 
     def game_loop(self):
         """
@@ -79,9 +82,6 @@ class Game:
 
             delta = self.clock.tick(60) / 1000
 
-            # update camera to follow player character
-            self.camera.update(delta)
-
             if self.player.retrieve_health_information() <= 0:
                 break
 
@@ -89,12 +89,16 @@ class Game:
             self.enemies_sprites.update(delta)
             self.player.update_with_constrains(movm, (self.config.game_config.width, self.config.game_config.height))
 
+            backMov = ( (movm[0] + 1) * -1, 0)
+
             # Update and draw Background
-            self.background_sprites.update(delta)
+            self.background_sprites.update(backMov)
             self.background_sprites.draw(self.screen)
 
             # Draw Enemies and Player
+            self.enemies_sprites.update(backMov)
             self.enemies_sprites.draw(self.screen)
+
             self.screen.blit(self.player.image, self.player)
 
             pygame.display.flip()

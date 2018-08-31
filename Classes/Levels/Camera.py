@@ -31,4 +31,4 @@ class Camera:
         :return:
         """
 
-        self.location.x += 1
+        self.location = delta

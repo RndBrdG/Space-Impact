@@ -19,7 +19,6 @@ class Background(pygame.sprite.Sprite):
         self.image = pygame.image.load(sprite_url).convert()
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
-        self.dx = 1
         self.block_mvm = False
 
     def update(self, movement):
@@ -27,6 +26,8 @@ class Background(pygame.sprite.Sprite):
         Function created to be able to edit this object location
         :param movement: Shift of position
         """
+        if (movement[0] == 0):
+            movement = (-1, 0)
 
         if not self.block_mvm:
-            self.rect.x -= self.dx
+            self.rect.x += movement[0]
